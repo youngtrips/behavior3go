@@ -45,7 +45,7 @@ type Tick struct {
 	 * @property {b3.Blackboard} blackboard
 	 * @readOnly
 	**/
-	Blackboard *Blackboard
+	Blackboard Blackboard
 	/**
 	 * The list of open nodes. Update during the tree traversal.
 	 * @property {Array} _openNodes
@@ -70,7 +70,6 @@ type Tick struct {
 	 * @readOnly
 	**/
 	_nodeCount int
-
 }
 
 func NewTick() *Tick {
@@ -151,12 +150,12 @@ func (this *Tick) _closeNode(node *BaseNode) {
 
 }
 
-func (this *Tick) pushSubtreeNode(node *SubTree)  {
-	this._openSubtreeNodes = append(this._openSubtreeNodes,node)
+func (this *Tick) pushSubtreeNode(node *SubTree) {
+	this._openSubtreeNodes = append(this._openSubtreeNodes, node)
 }
-func (this *Tick) popSubtreeNode()  {
+func (this *Tick) popSubtreeNode() {
 	ulen := len(this._openSubtreeNodes)
-	if ulen>0 {
+	if ulen > 0 {
 		this._openSubtreeNodes = this._openSubtreeNodes[:ulen-1]
 	}
 }
@@ -168,7 +167,7 @@ func (this *Tick) popSubtreeNode()  {
 **/
 func (this *Tick) GetLastSubTree() *SubTree {
 	ulen := len(this._openSubtreeNodes)
-	if ulen>0 {
+	if ulen > 0 {
 		return this._openSubtreeNodes[ulen-1]
 	}
 	return nil

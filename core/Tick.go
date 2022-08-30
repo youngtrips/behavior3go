@@ -45,7 +45,7 @@ type Tick struct {
 	 * @property {b3.Blackboard} blackboard
 	 * @readOnly
 	**/
-	Blackboard Blackboard
+	Blackboard *Blackboard
 	/**
 	 * The list of open nodes. Update during the tree traversal.
 	 * @property {Array} _openNodes

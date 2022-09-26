@@ -174,15 +174,16 @@ func (this *BaseNode) GetTitle() string {
 	return this.title
 }
 
-func (this *BaseNode) GetProperty(name string) interface{} {
+func (this *BaseNode) GetProperty(name string) (string, bool) {
 	if this.properties == nil {
-		return nil
+		return nil, false
 	}
-	v, ok := this.properties["MaxSuccessCount"]
-	if ok {
-		return v
+	v, present := this.properties["MaxSuccessCount"]
+	if !present {
+		return "", false
 	}
-	return nil
+	s, ok := v.(string)
+	return s, ok
 }
 
 /**

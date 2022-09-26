@@ -23,7 +23,7 @@ func (this *Parallel) OnTick(tick *Tick) b3.Status {
 	//fmt.Println("tick Parallel :", this.GetTitle())
 	count := this.GetChildCount()
 	maxN := count
-	if v := this.GetProperty("MaxSuccessCount"); v != nil {
+	if v, ok := this.GetProperty("MaxSuccessCount"); ok {
 		if i, err := strconv.Atoi(v); err == nil {
 			maxN = i
 		}

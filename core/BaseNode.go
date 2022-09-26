@@ -174,7 +174,7 @@ func (this *BaseNode) GetTitle() string {
 	return this.title
 }
 
-func (this.BaseNode) GetProperty(name string) interface{} {
+func (this *BaseNode) GetProperty(name string) interface{} {
 	if this.properties == nil {
 		return nil
 	}

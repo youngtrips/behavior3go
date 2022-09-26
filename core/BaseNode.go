@@ -174,6 +174,17 @@ func (this *BaseNode) GetTitle() string {
 	return this.title
 }
 
+func (this.BaseNode) GetProperty(name string) interface{} {
+	if this.properties == nil {
+		return nil
+	}
+	v, ok := this.properties["MaxSuccessCount"]
+	if ok {
+		return v
+	}
+	return nil
+}
+
 /**
  * This is the main method to propagate the tick signal to this node. This
  * method calls all callbacks: `enter`, `open`, `tick`, `close`, and

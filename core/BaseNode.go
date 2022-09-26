@@ -176,7 +176,7 @@ func (this *BaseNode) GetTitle() string {
 
 func (this *BaseNode) GetProperty(name string) (string, bool) {
 	if this.properties == nil {
-		return nil, false
+		return "", false
 	}
 	v, present := this.properties["MaxSuccessCount"]
 	if !present {
